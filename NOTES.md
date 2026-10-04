@@ -22,9 +22,11 @@ For the provided seed CSV, episode IDs are trimmed and uppercased, task, quality
 
 ## Deliberate omissions and simplifications
 
-No optional stretch item was selected. Real-time updates, background export jobs, and public deployment were intentionally left out because the required request, assignment, import, authorization, and audit workflows provide more evaluation value within the time limit.
+I did not complete the deployment stretch because hosting the frontend, API, and PostgreSQL database on a free tier was too restrictive for a secure production deployment. Real-time updates, background export jobs, and a public deployment were intentionally left out because the required request, assignment, import, authorization, and audit workflows provide more evaluation value within the time limit.
 
-The frontend is intentionally operational rather than a full design system. Pagination controls currently request a bounded working page for the main role screens, while the backend exposes real pagination parameters. Notifications, password reset, profile editing, and file delivery storage are not part of the brief. With two more days I would add browser-level tests, server-driven dashboard aggregates, a request detail route, and a deployment pipeline with managed secrets.
+The deployment approach I would use in production is a paid Azure setup: the Next.js frontend and FastAPI backend would run as separate containerized services, while PostgreSQL would be managed as a dedicated database service with backups, networking controls, and secrets managed via Azure Key Vault. The notes in this document describe that architecture and the operational trade-offs I would use if the app were moved beyond local Docker-based development.
+
+The frontend is intentionally operational rather than a full design system. Pagination controls currently request a bounded working page for the main role screens, while the backend exposes real pagination parameters. Notifications, password reset, profile editing, and file delivery storage are not part of the brief. With two more days I would add browser-level tests, server-driven dashboard aggregates, a request detail route, and the deployment pipeline with managed secrets.
 
 ## Something that went wrong
 
